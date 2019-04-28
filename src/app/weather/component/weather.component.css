@@ -1,0 +1,8 @@
+#weatherListEU table {
+  width: 100%;
+}
+
+#weatherListEU mat-expansion-panel{
+	margin-left:15%;
+	margin-right:15%;
+}
