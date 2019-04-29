@@ -12,13 +12,14 @@ import { IWeatherDataList } from '../weatherDataList';
 
 export class WeatherComponent implements OnInit {
 
-  cities: string[] = ['Paris', 'Zurich', 'Amsterdam', 'Berlin', 'Rome'];
-  displayedColumns: string[] = ['dt_txt', 'temp', 'speed' , 'description'];
-  weatherList = new Map<string, IWeatherData>();
-  selectedWeatherForecast:IWeatherData[];
+  cities: string[] = ['Paris', 'Zurich', 'Amsterdam', 'Berlin', 'Rome']; // list of cities
+  displayedColumns: string[] = ['dt_txt', 'temp', 'speed' , 'description'];// Weather Details table columns
+  weatherList = new Map<string, IWeatherData>(); // map to save current weather status of all cities
+  selectedWeatherForecast:IWeatherData[]; // forcast object of currently selected city
 
   constructor(private weatherService: WeatherService){}
 
+  //runs as the component loads
   ngOnInit(){
 
     //todo: use forEach
@@ -39,6 +40,7 @@ export class WeatherComponent implements OnInit {
   getCityWeatherForecast(city){
   	this.weatherService.getWeatherForecastByCity(city)
   		.subscribe(data => {
+        // get only first 4 forcast data ( till next 12 hours )
   			this.selectedWeatherForecast = data.list.slice(0,4); 
       },(err: string) =>  console.log(err));
 
