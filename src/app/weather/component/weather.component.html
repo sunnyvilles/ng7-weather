@@ -1,5 +1,9 @@
 
+
+<!--Main Weather list -->
 <mat-accordion id="weatherListEU">
+
+	<!--pane for each city-->
 	<mat-expansion-panel *ngFor="let data of weatherList | keyvalue" (opened)="getCityWeatherForecast(data.key)">
 
 		<mat-expansion-panel-header>
@@ -15,7 +19,7 @@
 		</mat-expansion-panel-header>
 
 		<h4>Forecast for next few hours</h4>
-		
+
 		<!--lazy loaded-->
 		<ng-template matExpansionPanelContent>
 			<div class="example-container mat-elevation-z8">

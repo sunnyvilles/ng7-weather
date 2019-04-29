@@ -20,7 +20,7 @@ export class WeatherService {
   //todo: error handling
   //forcast
   getWeatherForecastByCity(city:string): Observable<IWeatherDataList>{
-    return this.http.get<IWeatherDataList>(`${this.baseUrl}forecast?units=metric&q=${city}&appid=${this.appID}`);
+    return this.http.get<IWeatherDataList>(`${this.baseUrl}forecast?units=metric&q=${city}&appid=${this.appID}`)
   }
 
   //current weather
