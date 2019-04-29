@@ -20,23 +20,28 @@ export class WeatherComponent implements OnInit {
   constructor(private weatherService: WeatherService){}
 
   ngOnInit(){
+
+    //todo: use forEach
 		for (let i = 0; i <= this.cities.length-1; i += 1) {
 	        this.getWeatherByCity(this.cities[i]);
 	    }
   }
 
+  // get current weather for a city
   getWeatherByCity(city){
   	this.weatherService.getWeatherByCity(city)
   		.subscribe(data => {
   			this.weatherList.set(city,data); 
-  		});
+  		},(err: string) =>  console.log(err));
   }
 
+  // get forcast weather for a city
   getCityWeatherForecast(city){
   	this.weatherService.getWeatherForecastByCity(city)
   		.subscribe(data => {
   			this.selectedWeatherForecast = data.list.slice(0,4); 
-  		});
+      },(err: string) =>  console.log(err));
+
   }
 
 }

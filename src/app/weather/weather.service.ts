@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { IWeatherData } from './weatherData';
 import { IWeatherDataList } from './weatherDataList';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -21,12 +20,12 @@ export class WeatherService {
   //todo: error handling
   //forcast
   getWeatherForecastByCity(city:string): Observable<IWeatherDataList>{
-  	return this.http.get<IWeatherDataList>(this.baseUrl+'forecast?units=metric&q='+city+'&appid='+this.appID);
+    return this.http.get<IWeatherDataList>(`${this.baseUrl}forecast?units=metric&q=${city}&appid=${this.appID}`);
   }
 
   //current weather
   getWeatherByCity(city:string): Observable<IWeatherData>{
-  	return this.http.get<IWeatherData>(this.baseUrl+'weather?units=metric&q='+city+'&appid='+this.appID);
+  	return this.http.get<IWeatherData>(`${this.baseUrl}weather?units=metric&q=${city}&appid=${this.appID}`); 
   }
 
 }
