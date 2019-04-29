@@ -19,11 +19,14 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Implementation
 
 Used Angular CLI for initial project workflow .All work done is inside the folder `src/app`.
+
+* Single page application using angular 7
 * Created services, component, test and tempaltes without any scaffolding .
 * Lazy loading of Weather details .
 * Used Angular material UI
 * Unit test for the service
-* separate independent component for weather app
+* Separate independent component for weather app
+* Responsive UI
 
 #things could be improved
 
